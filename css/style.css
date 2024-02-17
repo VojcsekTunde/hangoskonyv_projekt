@@ -2,12 +2,14 @@
 background-color: #f9f6ef;   border-bottom: 1px solid #A99788;  background-color: #998f85;  color: #f9f6ef; */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;600&display=swap');
 
+.quote p,body{
+    font-size: 18px;
+}
 
 body{
     width: 100%;
     margin: 0px auto;
     font-family: "EB Garamond", serif;
-    font-size: 18px;
     background-color: #f9f6ef77;
 }
 
@@ -36,7 +38,7 @@ header, .choose-us h4{
     font-size: 20px;
 }
 
-.nav-icons,.categories-card p, .index-ad i, button .btn-light{
+.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote{
    font-size: 22px;
 }
 
@@ -54,21 +56,24 @@ header, .choose-us h4{
     margin: 10px;
 } 
 
-.index-ad h3, .choose-us h3,.categories h3{
+.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3{
     text-transform: uppercase; 
 }
 
-.choose-us h3,.categories h3,.btn-light{
-    font-family: "Cinzel", serif;
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3{
     font-weight: 700;
 }
 
-.index-ad h3{
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.quote h4{
+    font-family: "Cinzel", serif;
+}
+
+.index-ad h3,.quote h4{
     font-weight: 600;
 }
 
 .index-ad{
-    background-color: #cf9d7242;
+    background-color: #ebddcf;
 }
 
 .logo{
@@ -80,9 +85,9 @@ header, .choose-us h4{
     align-items: center;
     padding: 30px;  
   }
-  .btn.more, .input-group-text{
-    background-color: #91553c!important;
-    color: rgb(255, 255, 255)!important;
+  .btn.more, .input-group-text, .quote{
+    background-color: #b16f53!important;
+    color: #ffffff!important;
   }
 
   .form-control,.choose-us i:active{
@@ -92,4 +97,14 @@ header, .choose-us h4{
 
 .choose-us h3{
     margin: 0px 10px;
+}
+
+.quote h4{
+    font-weight: 300!important;
+    margin: 20px 20px 10px 20px;
+    padding: 20px 20px 10px 20px ;
+}
+.quote p{
+    float: right;
+    padding-right: 50px;
 }
