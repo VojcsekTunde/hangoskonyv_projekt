@@ -22,10 +22,9 @@ header, .choose-us h4{
 }
 
 
-.navbar .collapse , .choose-us h4{
+header .navbar .collapse , .choose-us h4{
     border-bottom: 1px solid #a57a568f;
-    }
-
+}
 
 .nav-link{
     text-decoration: none;
@@ -107,4 +106,64 @@ header, .choose-us h4{
 .quote p{
     float: right;
     padding-right: 50px;
+}
+
+footer {
+    border-top: 1px solid #a57a568f;
+    margin-top: 20px;
+}
+
+.cards div {
+    min-width: 75px;
+    width: 13%;
+    padding: 0 1%;
+}
+
+.cards img {
+    width: 100%;
+    color: #91553c;
+}
+
+.cards img:hover {
+    filter: drop-shadow(0 0 10px rgba(165, 122, 86, 0.25));
+}
+
+footer a {
+    color: #91553c !important;
+    font-weight: 900;
+}
+
+footer li {
+    padding: 0 !important;
+}
+
+footer .map {
+    padding: 20px;
+}
+
+footer .navbar-expand-lg ul, footer .navbar, footer .collapse {
+    align-items: flex-start !important;
+}
+
+footer .navbar-expand-lg ul {
+    flex-direction: column !important;
+}
+
+footer .navbar {
+    padding: 20px;
+}
+
+footer .navbar-brand, .social-icons {
+    padding: 8px;
+}
+
+footer .navbar-brand {
+    font-size: 22px;
+}
+
+footer iframe {
+    height: 250px;
+    width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px 0 rgba(165, 122, 86, 0.2), 0 6px 20px 0 rgba(165, 122, 86, 0.19);
 }
