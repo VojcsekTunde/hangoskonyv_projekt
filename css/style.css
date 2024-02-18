@@ -2,23 +2,20 @@
 background-color: #f9f6ef;   border-bottom: 1px solid #A99788;  background-color: #998f85;  color: #f9f6ef; */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;600&display=swap');
 
-.quote p,body{
-    font-size: 18px;
-}
-
 body{
+    font-size: 18px;
     width: 100%;
     margin: 0px auto;
     font-family: "EB Garamond", serif;
     background-color: #f9f6ef77;
 }
 
-a.nav-link, body,.btn-light,.choose-us i::before{
+a.nav-link, body,.btn-light{
     color:  #91553c !important;
 }
 
 header, .choose-us h4{
-    margin: 0px 40px;
+    margin: 0px 50px;
 }
 
 
@@ -33,7 +30,7 @@ header .navbar .collapse , .choose-us h4{
     letter-spacing: 1px;
 }
 
-.nav-link, .index-ad{
+.nav-link, .index-ad,.quote p{
     font-size: 20px;
 }
 
@@ -83,13 +80,15 @@ header .navbar .collapse , .choose-us h4{
     font-size: 80px;
     align-items: center;
     padding: 30px;  
+    border: 3px solid #b16f53;
+
   }
-  .btn.more, .input-group-text, .quote{
+  .btn.more, .input-group-text,.quote{
     background-color: #b16f53!important;
     color: #ffffff!important;
   }
 
-  .form-control,.choose-us i:active{
+  .form-control{
     border: 1px solid #aa634485;
     
   }
@@ -100,12 +99,13 @@ header .navbar .collapse , .choose-us h4{
 
 .quote h4{
     font-weight: 300!important;
-    margin: 20px 20px 10px 20px;
-    padding: 20px 20px 10px 20px ;
+    margin: 20px 0px 10px 0px;
+    padding: 30px 0px 30px 0px ;
 }
 .quote p{
     float: right;
     padding-right: 50px;
+    font-style: italic;
 }
 
 footer {
@@ -167,3 +167,11 @@ footer iframe {
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(165, 122, 86, 0.2), 0 6px 20px 0 rgba(165, 122, 86, 0.19);
 }
+
+.quote{
+    background-image: url(../img/quote-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
