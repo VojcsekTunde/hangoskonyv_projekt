@@ -19,7 +19,7 @@ header, .choose-us h4{
 }
 
 
-header .navbar .collapse , .choose-us h4{
+header .navbar .collapse , .choose-us h4 {
     border-bottom: 1px solid #a57a568f;
 }
 
@@ -108,6 +108,19 @@ header .navbar .collapse , .choose-us h4{
     font-style: italic;
 }
 
+#carouselExampleFade span {
+    background-color: #DFD8C5 !important;
+}
+
+#carouselExampleFade button {
+    margin: 0px -10%;
+}
+
+#carouselExampleFade {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 footer {
     border-top: 1px solid #a57a568f;
     margin-top: 20px;
@@ -175,3 +188,7 @@ footer iframe {
     background-position: center center;
 }
 
+form button {
+    background-color:#91553c !important;
+    border: #91553c !important;
+}
