@@ -10,7 +10,7 @@ body{
     background-color: #f9f6ef77;
 }
 
-a.nav-link, body,.btn-light,.choose-us i::before{
+a.nav-link, body,.btn-light{
     color:  #91553c !important;
 }
 
@@ -23,7 +23,7 @@ header, .choose-us h4{
     border-bottom: 1px solid #a57a568f;
     }
 
-
+    
 .nav-link{
     text-decoration: none;
     font-weight: 500;
@@ -81,13 +81,15 @@ header, .choose-us h4{
     font-size: 80px;
     align-items: center;
     padding: 30px;  
+    border: 3px solid #b16f53;
+
   }
   .btn.more, .input-group-text,.quote{
     background-color: #b16f53!important;
     color: #ffffff!important;
   }
 
-  .form-control,.choose-us i:active{
+  .form-control{
     border: 1px solid #aa634485;
     
   }
