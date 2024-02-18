@@ -82,7 +82,7 @@ header, .choose-us h4{
     align-items: center;
     padding: 30px;  
   }
-  .btn.more, .input-group-text, .quote{
+  .btn.more, .input-group-text,.quote{
     background-color: #b16f53!important;
     color: #ffffff!important;
   }
@@ -105,3 +105,11 @@ header, .choose-us h4{
     float: right;
     font-style: italic;
 }
+
+.quote{
+    background-image: url(../img/quote-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
