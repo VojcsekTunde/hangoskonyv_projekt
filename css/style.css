@@ -1,10 +1,12 @@
 /* szín ötletek
 background-color: #f9f6ef;   border-bottom: 1px solid #A99788;  background-color: #998f85;  color: #f9f6ef; */
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Oswald:wght@200..700&family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;600&display=swap');
+body, .comments img, .cards img, footer iframe{
+    width: 100%;
+}
 
 body{
     font-size: 18px;
-    width: 100%;
     margin: 0px auto;
     font-family: "EB Garamond", serif;
     background-color: #f9f6ef77;
@@ -34,7 +36,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     font-size: 20px;
 }
 
-.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote{
+.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote,footer .navbar-brand{
    font-size: 22px;
 }
 
@@ -52,7 +54,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     margin: 10px;
 } 
 
-.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3{
+.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3, .comment h3, .smallcont h3, footer h4{
     text-transform: uppercase; 
 }
 
@@ -90,7 +92,6 @@ header .navbar .collapse , .choose-us h4, .comment {
 }
 
 .comments img {
-    width: 100%;
     border-radius: 50%
 }
 
@@ -155,7 +156,6 @@ footer {
 }
 
 .cards img {
-    width: 100%;
     color: #91553c;
 }
 
@@ -172,7 +172,7 @@ footer li {
     padding: 0 !important;
 }
 
-footer .map {
+footer .map, footer .navbar {
     padding: 20px;
 }
 
@@ -184,21 +184,13 @@ footer .navbar-expand-lg ul {
     flex-direction: column !important;
 }
 
-footer .navbar {
-    padding: 20px;
-}
-
 footer .navbar-brand, .social-icons {
     padding: 8px;
 }
 
-footer .navbar-brand {
-    font-size: 22px;
-}
 
 footer iframe {
     height: 250px;
-    width: 100%;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(165, 122, 86, 0.2), 0 6px 20px 0 rgba(165, 122, 86, 0.19);
 }
