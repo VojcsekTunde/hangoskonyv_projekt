@@ -12,12 +12,13 @@ body{
     background-color: #f9f6ef77;
 }
 
+
 .cartItems td, .cartItems th {
     background-color: #f9f6ef77;
     border-color: #ebddcf;
 }
 
-a.nav-link, body,.btn-light, .addToCart, .cartItems td, .cartItems th{
+a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th{
     color:  #91553c !important;
 }
 
