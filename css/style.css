@@ -12,7 +12,7 @@ body{
     background-color: #f9f6ef77;
 }
 
-a.nav-link, body,.btn-light{
+a.nav-link, body,.btn-light, .addToCart{
     color:  #91553c !important;
 }
 
@@ -23,6 +23,15 @@ header, .choose-us h4{
 
 header .navbar .collapse , .choose-us h4, .comment {
     border-bottom: 1px solid #a57a568f;
+}
+
+.publisher-imgs div {
+    border-left: 1px solid #a57a568f;
+    padding: 0 55px;
+}
+
+.publisher-imgs div:last-of-type {
+    border-right: 1px solid #a57a568f;
 }
 
 .nav-link{
@@ -48,17 +57,22 @@ header .navbar .collapse , .choose-us h4, .comment {
     margin: 50px;
 }
 
+.addToCart {
+    background-color: #fff;
+    border-radius: 25px;
+    border: 3px solid #ebddcf;
+}
    
 .choose-us p, .choose-us h4{
     padding: 10px;
     margin: 10px;
 } 
 
-.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3, .comment h3, .smallcont h3, footer h4{
+.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3, .comment h3, .smallcont h3, footer h4, .publishers h2, .book h4 {
     text-transform: uppercase; 
 }
 
-.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption{
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption, .addToCart{
     font-weight: 700;
 }
 
@@ -70,7 +84,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     font-weight: 600;
 }
 
-.index-ad {
+.index-ad, .audiobook {
     background-color: #ebddcf;
 }
 
@@ -98,7 +112,13 @@ header .navbar .collapse , .choose-us h4, .comment {
 .logo{
     margin-left: 20px;
 }
-.choose-us i::before {
+.publishers img {
+    object-fit: cover;
+    object-position: 50%;
+    width: 200px
+}
+
+.choose-us i::before, .publishers img {
     border-radius: 60%;
     font-size: 80px;
     align-items: center;
@@ -106,7 +126,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     border: 3px solid #b16f53;
 
   }
-  .btn.more, .input-group-text,.quote{
+  .btn.more, .input-group-text,.quote, .book{
     background-color: #b16f53!important;
     color: #ffffff!important;
   }
@@ -228,6 +248,12 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon{
     border-radius: 10px;
 }
 
+@media only screen and (max-width: 1400px) {
+    .publisher-imgs div, .publisher-imgs div:last-of-type {
+        border: none;
+        padding-bottom: 20px;
+    }
+}
 
 @media only screen and (max-width: 576px) {
     .container.smallcont {
