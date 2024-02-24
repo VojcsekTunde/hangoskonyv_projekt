@@ -12,7 +12,12 @@ body{
     background-color: #f9f6ef77;
 }
 
-a.nav-link, body,.btn-light, .addToCart{
+.cartItems td, .cartItems th {
+    background-color: #f9f6ef77;
+    border-color: #ebddcf;
+}
+
+a.nav-link, body,.btn-light, .addToCart, .cartItems td, .cartItems th{
     color:  #91553c !important;
 }
 
@@ -72,7 +77,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     text-transform: uppercase; 
 }
 
-.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption, .addToCart{
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption, .addToCart, .cartList h2{
     font-weight: 700;
 }
 
@@ -84,7 +89,15 @@ header .navbar .collapse , .choose-us h4, .comment {
     font-weight: 600;
 }
 
-.index-ad, .audiobook {
+.checkout .col-6, .checkout .col-3 {
+    padding-bottom: 15px;
+}
+
+.checkoutCards img {
+    width: 100px
+}
+
+.index-ad, .audiobook, .cartItems thead th, .checkout {
     background-color: #ebddcf;
 }
 
@@ -126,10 +139,15 @@ header .navbar .collapse , .choose-us h4, .comment {
     border: 3px solid #b16f53;
 
   }
-  .btn.more, .input-group-text,.quote, .book{
-    background-color: #b16f53!important;
-    color: #ffffff!important;
-  }
+
+.btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th {
+background-color: #b16f53!important;
+color: #ffffff!important;
+}
+
+.cartList td, .cartList th {
+    border: none !important
+}
 
   .form-control{
     border: 1px solid #aa634485;
@@ -248,11 +266,22 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon{
     border-radius: 10px;
 }
 
+@media only screen and (max-width: 1570px) {
+    .checkoutCards {
+        width: 100% !important;
+    }
+
+    .checkoutCards div {
+        padding-bottom: 20px;
+    }
+}
+
 @media only screen and (max-width: 1400px) {
     .publisher-imgs div, .publisher-imgs div:last-of-type {
         border: none;
         padding-bottom: 20px;
     }
+
 }
 
 @media only screen and (max-width: 576px) {
