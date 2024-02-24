@@ -141,9 +141,21 @@ header .navbar .collapse , .choose-us h4, .comment {
 
   }
 
-.btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th {
+.suggestions article {
+    border: 3px solid #b16f53;
+}
+
+.btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th, .suggestions button {
 background-color: #b16f53!important;
 color: #ffffff!important;
+}
+
+.suggestions button {
+    border: none !important
+}
+
+.cartFinal, .cartFinal th {
+    background-color: #844429 !important;
 }
 
 .cartList td, .cartList th {
@@ -288,6 +300,10 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon{
 @media only screen and (max-width: 576px) {
     .container.smallcont {
         width: 100%;
+    }
+
+    .container.smallcont article {
+        width: 100% !important;
     }
 
     .comments .img-holder {

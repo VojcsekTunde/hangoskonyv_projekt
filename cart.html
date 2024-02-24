@@ -202,19 +202,38 @@
                     </form>
                 </div>
             </section>
-            <aside class="col-lg-3 col-12 p-0 cartList text-center">
-                <h2 class="py-3">Összeg</h2>
-                <div class="cartListFooter">
+            <aside class="col-lg-3 col-12 p-0 cartList d-flex flex-column">
+                <div class="p-4">
+                    <h2 class="py-3 text-center">Összeg</h2>
+                    <div class="cartListFooter text-center">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <th class="text-start">Szálittás</th>
+                                    <th class="text-end">300 Ft</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-start">Összesen</th>
+                                    <th class="text-end">5000 Ft</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="cartFinal mt-auto px-4 pt-2">
+                    <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label me-auto">Kuponkód</label>
+                          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Következő</button>
+                    </form>
                     <table class="table">
                         <tbody>
                             <tr>
-                                <th class="text-start">Szálittás</th>
-                                <th class="text-end">300 Ft</th>
-                            </tr>
-                            <tr>
-                                <th class="text-start">Összesen</th>
-                                <th class="text-end">5000 Ft</th>
-                            </tr>
+                                <th class="text-start">Végösszeg</th>
+                                <th class="text-end">5600 Ft</th>
+                             </tr>
                         </tbody>
                     </table>
                 </div>
