@@ -12,13 +12,16 @@ body{
     background-color: #f9f6ef77;
 }
 
+.categories-more {
+    background-color: #eee2d6ad;
+}
 
 .cartItems td, .cartItems th {
     background-color: #f9f6ef77;
     border-color: #ebddcf;
 }
 
-a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th{
+a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th,.Top-Audio td,.Top-Audio th{
     color:  #91553c !important;
 }
 
@@ -47,7 +50,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     letter-spacing: 1px;
 }
 
-.nav-link, .index-ad,.quote p{
+.nav-link, .index-ad,.quote p, .Top-Audio td,.Top-Audio th{
     font-size: 20px;
 }
 
@@ -74,15 +77,15 @@ header .navbar .collapse , .choose-us h4, .comment {
     margin: 10px;
 } 
 
-.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3, .comment h3, .smallcont h3, footer h4, .publishers h2, .book h4 {
+.index-ad h3, .choose-us h3,.categories h3,.AboutUs h3, .comment h3, .smallcont h3, footer h4, .publishers h2, .book h4, .categories-more h3, .main-title{
     text-transform: uppercase; 
 }
 
-.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption, .addToCart, .cartList h2{
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.carousel-caption, .addToCart, .cartList h2,.categories-more h3{
     font-weight: 700;
 }
 
-.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.quote h4,.carousel-caption{
+.choose-us h3,.categories h3,.btn-light,.AboutUs h3,.quote h4,.carousel-caption,.categories-more h3,.Top-Audio td,.Top-Audio th{
     font-family: "Cinzel", serif;
 }
 
@@ -154,7 +157,7 @@ color: #ffffff!important;
     border: none !important
 }
 
-.cartFinal, .cartFinal th {
+.cartFinal, .cartFinal th{
     background-color: #844429 !important;
 }
 
@@ -162,7 +165,7 @@ color: #ffffff!important;
     border: none !important
 }
 
-  .form-control{
+  .form-control, .card{
     border: 1px solid #aa634485;
     
   }
@@ -182,7 +185,7 @@ color: #ffffff!important;
     font-style: italic;
 }
 
-#carouselExampleFade span {
+#carouselExampleFade span{
     background-color: #DFD8C5 !important;
 }
 
@@ -206,7 +209,7 @@ footer {
     padding: 0 1%;
 }
 
-.cards img {
+.cards img, .card-body h5 {
     color: #91553c;
 }
 
@@ -263,7 +266,7 @@ form button, span.carousel-control-prev-icon, span.carousel-control-next-icon {
     width: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .carousel-caption{
@@ -273,10 +276,19 @@ form button, span.carousel-control-prev-icon, span.carousel-control-next-icon {
 .categories-more .card{
     width: 15rem;
 }
-
+.Top-Audio table{
+    margin: 100px 0px;
+}
 
 span.carousel-control-prev-icon, span.carousel-control-next-icon{
     border-radius: 10px;
+}
+a{
+    text-decoration: none;
+}
+
+.shelf{
+    padding: 0px !important;
 }
 
 @media only screen and (max-width: 1570px) {
@@ -287,12 +299,18 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon{
     .checkoutCards div {
         padding-bottom: 20px;
     }
+    .categories img{
+        width: 60%;
+    }
 }
 
 @media only screen and (max-width: 1400px) {
     .publisher-imgs div, .publisher-imgs div:last-of-type {
         border: none;
         padding-bottom: 20px;
+    }
+    .categories img{
+        width: 70%;
     }
 
 }
@@ -318,4 +336,8 @@ span.carousel-control-prev-icon, span.carousel-control-next-icon{
     #carouselExampleFade button {
         margin: 0px 5%;
     }
+    .categories img{
+        width: 50%;
+    }
+    
 }
