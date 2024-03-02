@@ -13,7 +13,9 @@ body{
 }
 
 .categories-more {
-    background-color: #eee2d6ad;
+   z-index: 2;
+   background: rgb(249,246,239);
+   background: linear-gradient(180deg, rgba(249,246,239,1) 1%, rgba(236,224,212,1) 24%, rgba(228, 217, 206, 0.849) 51%, rgba(239,227,215,1) 81%, rgba(249,246,239,1) 100%);
 }
 
 .cartItems td, .cartItems th {
@@ -21,7 +23,7 @@ body{
     border-color: #ebddcf;
 }
 
-a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th,.Top-Audio td,.Top-Audio th{
+a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th,.Top-Audio td,.Top-Audio th,#searchResults li a,#mobileSearchResults li a{
     color:  #91553c !important;
 }
 
@@ -32,7 +34,25 @@ header, .choose-us h4{
 header .navbar , .choose-us h4, .comment {
     border-bottom: 1px solid #a57a568f;
 }
+#mobileSearchResults{
+    list-style-type: none;
+    padding: 0;
+     margin: 0;
+     position: absolute;
+}
 
+#searchResults{
+    list-style-type: none;
+    padding: 0;
+     margin: 0;
+     position:absolute;
+    width: 22%;
+    }
+
+#searchResults li a, #mobileSearchResults li a {
+    padding: 10px;
+    display: block;
+  }
 
 .publisher-imgs div {
     border-left: 1px solid #a57a568f;
@@ -44,7 +64,6 @@ header .navbar , .choose-us h4, .comment {
 }
 
 .nav-link{
-    text-decoration: none;
     font-weight: 500;
     font-style: normal;
     letter-spacing: 1px;
@@ -65,7 +84,7 @@ header .navbar , .choose-us h4, .comment {
 .categories h3{
     margin: 50px;
 }
-.navbar-toggler,.addToCart {
+.navbar-toggler,.addToCart,#searchResults li a,#mobileSearchResults li a {
     background-color: #fff;}
 
 .addToCart {
@@ -166,9 +185,12 @@ color: #ffffff!important;
     border: none !important
 }
 
-  .form-control, .card, .navbar-toggler{
+  .form-control, .card, .navbar-toggler,#searchResults li a,#mobileSearchResults li a{
     border: 1px solid #aa634485;
     
+  }
+  .card{
+    z-index: 3 !important;
   }
 
 .choose-us h3{
@@ -212,6 +234,7 @@ footer {
 
 .cards img, .card-body h5 {
     color: #91553c!important;
+
 }
 
 .cards img:hover {
@@ -267,12 +290,13 @@ form button, span.carousel-control-prev-icon, span.carousel-control-next-icon {
     width: 100%;
     object-fit: cover;
     object-position: center;
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 .carousel-caption{
-    color: #533223;
+    color: #9b3c14;
     font-size: 30px;
+    -webkit-text-stroke: 1px #000000;
 }
 .categories-more .card{
     width: 15rem;
@@ -284,12 +308,25 @@ form button, span.carousel-control-prev-icon, span.carousel-control-next-icon {
 span.carousel-control-prev-icon, span.carousel-control-next-icon{
     border-radius: 10px;
 }
-a{
+a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     text-decoration: none;
 }
 
 .shelf{
     padding: 0px !important;
+    width: 100%;
+    height: 100px;
+    z-index: 2;
+    position: relative;
+    bottom: 80px;
+    opacity: 0.9;
+    margin: 0px auto;
+}
+
+.shelf img{
+    box-shadow: -1px 20px 14px -15px  rgba(0, 0, 0, 0.75);
+    height: 100%;
+  
 }
 
 .audiobook button {
@@ -358,11 +395,5 @@ a{
     }
     .logo, .MainSearch,.MainSearchIcon{
         display: none;
-    }
-
-    @media only screen and (max-width: 768px) {
-        .shelf{
-            display: none !important;
-        }
     }
 }

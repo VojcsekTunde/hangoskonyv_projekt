@@ -88,6 +88,47 @@ if (hasStorageSupport()) {
   })
 })()
 
-var SearchBar = document.getElementById("SearchBar");
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+const mobileSearchInput = document.getElementById('mobileSearchInput');
+const mobileSearchResults = document.getElementById('mobileSearchResults');
 
-var audiosTitle=["Fantasy-1","Fantasy-2","Fantasy-3","Fantasy-4","Gyerek-1","Gyerek-2","Gyerek-3","Gyerek-4","Ifjúsági-1","Ifjúsági-2","Ifjúsági-3","Ifjúsági-4","Szépirodalmi-1","Szépirodalmi-2","Szépirodalmi-3","Szépirodalmi-4","Ismeretterjesztő-1","Ismeretterjesztő-2","Ismeretterjesztő-3","Ismeretterjesztő-4"];
+const sections = [
+    { id: 'Fantasy-1', title: 'Fantasy-1 cím', page: 'audiobook1.html' },
+    { id: 'Fantasy-2', title: 'Fantasy-2 cím', page: 'audiobook1.html' },
+    { id: 'Gyerek-1', title: 'Gyerek-1 cím', page: 'audiobook1.html' },
+    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'audiobook1.html' },
+    { id: 'Ifjúsági-1', title: 'Ifjúsági-1 cím', page: 'audiobook1.html' },
+    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'audiobook1.html' },
+    { id: 'Szépirodalmi-1', title: 'Szépirodalmi-1 cím', page: 'audiobook1.html' },
+    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'audiobook1.html'},
+    { id: 'Ismeretterjesztő-1', title: 'Ismeretterjesztő-1 cím', page: 'audiobook1.html'},
+    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'audiobook1.html'}];
+
+
+function kisBetus() {
+    const searchText = searchInput.value.toLowerCase();
+    searchResults.innerHTML = '';
+
+    if (searchText === '') {
+        return;
+    } 
+
+    for (let i = 0; i < sections.length; i++) {
+        const section = sections[i];
+        const titleText = section.title.toLowerCase();
+
+        // Ha a címsor tartalmazza a keresési szöveget
+        if (titleText.includes(searchText)) {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.innerHTML = section.title;
+            link.href = section.page + '#' + section.id;  //h4 id
+            li.appendChild(link);
+            searchResults.appendChild(li);
+
+        }
+    }
+}
+searchInput.addEventListener('input', kisBetus);
+
