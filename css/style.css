@@ -29,10 +29,10 @@ header, .choose-us h4{
     margin: 0px 50px;
 }
 
-
-header .navbar .collapse , .choose-us h4, .comment {
+header .navbar , .choose-us h4, .comment {
     border-bottom: 1px solid #a57a568f;
 }
+
 
 .publisher-imgs div {
     border-left: 1px solid #a57a568f;
@@ -54,7 +54,7 @@ header .navbar .collapse , .choose-us h4, .comment {
     font-size: 20px;
 }
 
-.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote,footer .navbar-brand{
+.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote,footer .navbar-brand,.mobileSearch i{
    font-size: 22px;
 }
 
@@ -65,6 +65,8 @@ header .navbar .collapse , .choose-us h4, .comment {
 .categories h3{
     margin: 50px;
 }
+.navbar-toggler,.addToCart {
+    background-color: #fff;}
 
 .addToCart {
     background-color: #fff;
@@ -140,11 +142,10 @@ header .navbar .collapse , .choose-us h4, .comment {
     font-size: 80px;
     align-items: center;
     padding: 30px;  
-    border: 3px solid #b16f53;
 
   }
 
-.suggestions article {
+.suggestions article, .choose-us i::before, .publishers img{
     border: 3px solid #b16f53;
 }
 
@@ -165,7 +166,7 @@ color: #ffffff!important;
     border: none !important
 }
 
-  .form-control, .card{
+  .form-control, .card, .navbar-toggler{
     border: 1px solid #aa634485;
     
   }
@@ -210,7 +211,7 @@ footer {
 }
 
 .cards img, .card-body h5 {
-    color: #91553c;
+    color: #91553c!important;
 }
 
 .cards img:hover {
@@ -302,6 +303,7 @@ a{
     display: none;
 }
 
+
 @media only screen and (max-width: 1570px) {
     .checkoutCards {
         width: 100% !important;
@@ -353,5 +355,14 @@ a{
     .shelf img{
        display: none !important;
 
+    }
+    .logo, .MainSearch,.MainSearchIcon{
+        display: none;
+    }
+
+    @media only screen and (max-width: 768px) {
+        .shelf{
+            display: none !important;
+        }
     }
 }

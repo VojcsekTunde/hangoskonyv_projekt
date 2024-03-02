@@ -12,17 +12,20 @@
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg pb-0">
             <div class="container-fluid">
                 <div class="row w-100">
+                    <div class="mobileLogo text-center justify-content-center my-2 ps-4 d-lg-none d-sm-block d-md-block d-xs-block">
+                        <a class="navbar-brand" href="index.html"><img src="img/INDEXLOGO.png" alt="LOGO" width="60px"></a>
+                    </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                         data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                         aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="navbar-toggler-icon me-auto"></span>
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <div class="logo text-center justify-content-center my-2">
+                        <div class="logo text-center justify-content-center my-2 d-lg-block d-sm-none d-md-none d-xs-none">
                                 <a class="navbar-brand" href="index.html"><img src="img/INDEXLOGO.png" alt="LOGO" width="60px"></a>
                         </div>
                         <ul class="navbar-nav text-center ms-auto">
@@ -36,23 +39,38 @@
                                 <a class="nav-link" href="categories.html">Könyvek</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#aboutus">Rólunk</a>
+                                <a class="nav-link" href="index.html#aboutus">Rólunk</a>
                             </li>
                         </ul>
-
-                        <div class="col-sm-12 col-md-12 col-lg-2">
+              
+                        <div class="col-lg-2 d-lg-block d-sm-none d-md-none d-xs-none MainSearch">
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Keresés..." aria-label="Keresés..." aria-describedby="SearchBar">
                                 <span class="input-group-text" id="SearchBar"><i class="bi bi-search"></i></span>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-12 col-lg-1">
+                        <div class="col-sm-12 col-md-12 col-lg-1 d-lg-block d-sm-none d-md-none d-xs-none MainSearchIcon">
                             <span class="nav-icons d-flex justify-content-center">
                                 <a href="cart.html"><i class="bi bi-cart3 mx-2"></i></a>
-                                <a data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"><i class="bi bi-bookmark-star mx-2"></i></a>
+                                <i class="bi bi-bookmark-star mx-2"></i>
                             </span>
                         </div>
+                      
                     </div>
+                    <div class="MobileSearch d-lg-none d-sm-block d-md-block d-xs-block my-3">
+                    <div class="col-sm-12 col-md-12 ">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Keresés..." aria-label="Keresés..." aria-describedby="SearchBar">
+                            <span class="input-group-text" id="SearchBar"><i class="bi bi-search"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 mobileSearch">
+                        <span class="nav-icons d-flex justify-content-center pt-2">
+                            <a href="cart.html"><i class="bi bi-cart3 mx-2"></i></a>
+                            <i class="bi bi-bookmark-star mx-2"></i>
+                        </span>
+                    </div>
+                </div>
                 </div>
             </div>
         </nav>
