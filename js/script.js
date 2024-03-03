@@ -35,6 +35,27 @@ function addToCart() {
     alert("Add To Cart");
 }
 
+// Load storage
+function updatePage() {
+    if (hasStorageSupport()) {
+        var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
+        bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
+        console.log(bookmarks)
+    
+        var bookmarkContainer = document.querySelector(".bookmarkContainer")
+        bookmarkContainer.innerHTML = ""
+        for (i in bookmarks) {
+            if (document.querySelector("#audiobookName") && document.querySelector("#audiobookName").innerHTML == bookmarks[i].name) {
+                document.querySelector(".addBookmark").style.display = "none";
+                document.querySelector(".removeBookmark").style.display = "block";
+            }
+    
+            bookmarkContainer.innerHTML += '<a href="'+bookmarks[i].source+'"><article class="row">    <div class="col-4"><img class="w-100" src="'+bookmarks[i].img+'" alt=""></div>    <div class="col-8 mb-auto mt-2">        <p>'+bookmarks[i].name+'</p>    </div></article></a>'
+        }
+    }
+}
+updatePage()
+
 function addBookmark() {
     var bookmark = {
         name: document.querySelector("#audiobookName").innerHTML,
@@ -50,25 +71,10 @@ function addBookmark() {
         document.querySelector(".addBookmark").style.display = "block";
         document.querySelector(".removeBookmark").style.display = "none";
     }
+    updatePage()
 }
 
 // localStorage.setItem("HANGOSKONYV_BOOKMARKS", "");
-// Load storage
-if (hasStorageSupport()) {
-    var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
-    bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
-    console.log(bookmarks)
-
-    var bookmarkContainer = document.querySelector(".bookmarkContainer")
-    for (i in bookmarks) {
-        if (document.querySelector("#audiobookName").innerHTML == bookmarks[i].name) {
-            document.querySelector(".addBookmark").style.display = "none";
-            document.querySelector(".removeBookmark").style.display = "block";
-        }
-
-        bookmarkContainer.innerHTML += '<a href="'+bookmarks[i].source+'"><article class="row">    <div class="col-4"><img class="w-100" src="'+bookmarks[i].img+'" alt=""></div>    <div class="col-8 my-auto">        <p>'+bookmarks[i].name+'</p>    </div></article></a>'
-    }
-}
 
 // Bootstrap validáció
 (() => {
