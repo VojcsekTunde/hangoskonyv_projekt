@@ -192,15 +192,15 @@ const mobileSearchResults = document.getElementById('mobileSearchResults');
 
 const sections = [
     { id: 'Fantasy-1', title: 'Fantasy-1 cím', page: 'audiobook1.html' },
-    { id: 'Fantasy-2', title: 'Fantasy-2 cím', page: 'audiobook1.html' },
+    { id: 'Fantasy-2', title: 'Fantasy-2 cím', page: 'audiobook2.html' },
     { id: 'Gyerek-1', title: 'Gyerek-1 cím', page: 'audiobook1.html' },
-    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'audiobook1.html' },
+    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'audiobook2.html' },
     { id: 'Ifjúsági-1', title: 'Ifjúsági-1 cím', page: 'audiobook1.html' },
-    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'audiobook1.html' },
+    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'audiobook2.html' },
     { id: 'Szépirodalmi-1', title: 'Szépirodalmi-1 cím', page: 'audiobook1.html' },
-    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'audiobook1.html'},
+    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'audiobook2.html'},
     { id: 'Ismeretterjesztő-1', title: 'Ismeretterjesztő-1 cím', page: 'audiobook1.html'},
-    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'audiobook1.html'}];
+    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'audiobook2.html'}];
 
 
 function kisBetus() {
