@@ -79,7 +79,7 @@ header .navbar , .choose-us h4, .comment, #searchResults li a{
     letter-spacing: 1px;
 }
 
-.nav-link, .index-ad,.quote p, .Top-Audio td,.Top-Audio th,#searchResults li a{
+.nav-link, .index-ad,.quote p, .Top-Audio td,.Top-Audio th,#searchResults li a, .comments p{
     font-size: 20px;
 }
 
