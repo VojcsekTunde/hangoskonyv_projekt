@@ -17,7 +17,7 @@ function addCart(book) {
         var changed = false
         for (i in cart) {
             if (cart[i].name == book.name) {
-                cart[i].quantity++;
+                cart[i].quantity += book.quantity;
                 changed = true;
             }
         }
@@ -27,6 +27,22 @@ function addCart(book) {
 
         console.log(cart);
         localStorage.setItem("HANGOSKONYV_CART", JSON.stringify(cart));
+    }
+}
+
+function removeCart(bookName) {
+    if (hasStorageSupport()) {
+        var cart = localStorage.getItem("HANGOSKONYV_CART");
+        cart = cart ? JSON.parse(cart) : [];
+        for (i in cart) {
+            if (cart[i].name == bookName) {
+                cart.splice(i, 1);
+            }
+        }
+        console.log(cart);
+        localStorage.setItem("HANGOSKONYV_CART", JSON.stringify(cart));
+
+        return cart.length
     }
 }
 
@@ -72,11 +88,21 @@ function updatePage() {
 
         var cartItems = document.querySelector(".cartItems tbody")
         if (cartItems) {
-            for (i in cart) {
-                var book = cart[i];
-                console.log(book)
-                cartItems.innerHTML += '<tr><th scope="row">'+(Number(i)+1)+'</th><td><img src="'+book.img+'" width="100" alt="'+book.name+'" title="'+book.name+'">'+book.name+'</td><td><div class="d-flex">    <button type="button" class="btn">+</button>    <span class="itemQuantity my-auto px-2">'+book.quantity+'</span>    <button type="button" class="btn">-</button></div></td><td><span id="itemPrice">'+(book.price * book.quantity)+'</span> Ft</td></tr>';
+            total = 0
+            if (cart.length > 0) {
+                cartItems.innerHTML = ""
+                for (i in cart) {
+                    var book = cart[i];
+                    total += book.price * book.quantity
+                    console.log(book)
+                    cartItems.innerHTML += '<tr id=item-'+i+'><th scope="row">'+(Number(i)+1)+'</th><td><img src="'+book.img+'" width="100" alt="'+book.name+'" title="'+book.name+'"><span class="name">'+book.name+'</span></td><td><div class="d-flex">'+(book.quantity > 1 ? '<button type="button" class="btn" onclick="changeQuantity('+i+', -1)">-</button>' : '')+'<span class="itemQuantity my-auto px-2">'+book.quantity+'</span>    <button type="button" class="btn" onclick="changeQuantity('+i+', 1)">+</button></div></td><td><span id="itemPrice">'+(book.price * book.quantity)+'</span> Ft</td><td><button class="removeItem" onclick="removeFromCart('+i+')"><i class="bi bi-x-lg"></i></button></td></tr>';
+                }
+            } else {
+                document.querySelector(".cartItems").style.display = "none";
+                document.querySelector(".cartNone").style.display = "block";
             }
+            document.querySelector(".cartList #totalPrice").innerHTML = total
+            document.querySelector(".cartList #finalPrice").innerHTML = total+300
         }
     }
 }
@@ -93,6 +119,25 @@ function addToCart() {
     addCart(book);
 }
 
+function removeFromCart(i) {
+    var item = document.querySelector(".cartItems #item-"+i);
+    var name = document.querySelector(".cartItems #item-"+i+" .name").innerHTML;
+    console.log(name)
+
+    removeCart(name);
+    item.remove()
+
+    updatePage();
+}
+
+function changeQuantity(i, num) {
+    var name = document.querySelector(".cartItems #item-"+i+" .name").innerHTML;
+    var book = {name: name, quantity: num}
+    addCart(book)
+
+    updatePage();
+}
+
 function addBookmark() {
     var bookmark = {
         name: document.querySelector("#audiobookName").innerHTML,
@@ -104,9 +149,17 @@ function addBookmark() {
     if (!removed) {
         document.querySelector(".addBookmark").style.display = "none";
         document.querySelector(".removeBookmark").style.display = "block";
+        var toastContainer = document.getElementById('bookmarkToast');
+        document.querySelector("#bookmarkToast p").innerHTML = "A hangoskönyvet beraktuk a könyvjelzők közt."
+        var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
+        toast.show();
     } else {
         document.querySelector(".addBookmark").style.display = "block";
         document.querySelector(".removeBookmark").style.display = "none";
+        var toastContainer = document.getElementById('bookmarkToast');
+        document.querySelector("#bookmarkToast p").innerHTML = "A hangoskönyvet kivettük a könyvjelzők közt."
+        var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
+        toast.show();
     }
     updatePage()
 }
@@ -175,79 +228,8 @@ function kisBetus() {
     }
 }
 searchInput.addEventListener('input', kisBetus);
-function hasStorageSupport() {
-    return typeof(Storage) !== "undefined";
-}
 
-/*
-function setStorage(name, value) {
-    if (hasStorageSupport()) {
-
-    }
-}
-*/
-
-function setBookmark(bookmark) {
-    if (hasStorageSupport()) {
-        var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
-        bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
-        var removed = false
-        for (i in bookmarks) {
-            if (bookmarks[i].name == bookmark.name) {
-                bookmarks.splice(i, 1);
-                removed = true
-            }
-        }
-        if (!removed) {
-            bookmarks.push(bookmark);
-        }
-        console.log(bookmarks)
-        localStorage.setItem("HANGOSKONYV_BOOKMARKS", JSON.stringify(bookmarks));
-
-        return removed
-    }
-}
-
-function addToCart() {
-    alert("Add To Cart");
-}
-
-function addBookmark() {
-    var bookmark = {
-        name: document.querySelector("#audiobookName").innerHTML,
-        img: document.querySelector("#audiobookImg").src,
-        source: window.location.href
-    };
-
-    var removed = setBookmark(bookmark)
-    if (!removed) {
-        document.querySelector(".addBookmark").style.display = "none";
-        document.querySelector(".removeBookmark").style.display = "block";
-    } else {
-        document.querySelector(".addBookmark").style.display = "block";
-        document.querySelector(".removeBookmark").style.display = "none";
-    }
-}
-
-// localStorage.setItem("HANGOSKONYV_BOOKMARKS", "");
-// Load storage
-if (hasStorageSupport()) {
-    var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
-    bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
-    console.log(bookmarks)
-
-    var bookmarkContainer = document.querySelector(".bookmarkContainer")
-    for (i in bookmarks) {
-        if (document.querySelector("#audiobookName").innerHTML == bookmarks[i].name) {
-            document.querySelector(".addBookmark").style.display = "none";
-            document.querySelector(".removeBookmark").style.display = "block";
-        }
-
-        bookmarkContainer.innerHTML += '<a href="'+bookmarks[i].source+'"><article class="row">    <div class="col-4"><img class="w-100" src="'+bookmarks[i].img+'" alt=""></div>    <div class="col-8 my-auto">        <p>'+bookmarks[i].name+'</p>    </div></article></a>'
-    }
-}
-
- // KOMMENTELÉS
+// KOMMENTELÉS
 function addComment() {
     const nameInput = document.getElementById('name');
     const commentInput = document.getElementById('comment');

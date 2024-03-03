@@ -87,10 +87,14 @@
                               <th scope="col">Termékcím</th>
                               <th scope="col">Mennyiség</th>
                               <th scope="col">Ár (Ft)</th>
+                              <th></th>
                             </tr>
                           </thead>
                         <tbody></tbody>
                     </table>
+                </div>
+                <div class="container cartNone">
+                    <h2 class="text-center p-3">Jelenleg nincs semmi a kosarában.</h2>
                 </div>
                 <div class="container-fluid checkout p-3">
                     <h2 class="text-center">Fizetés</h2>
@@ -216,7 +220,7 @@
                                 </tr>
                                 <tr>
                                     <th class="text-start">Összesen</th>
-                                    <th class="text-end">5000 Ft</th>
+                                    <th class="text-end"><span id="totalPrice"></span> Ft</th>
                                 </tr>
                             </tbody>
                         </table>
@@ -234,7 +238,7 @@
                         <tbody>
                             <tr>
                                 <th class="text-start">Végösszeg</th>
-                                <th class="text-end">5300 Ft</th>
+                                <th class="text-end"><span id="finalPrice"></span> Ft</th>
                              </tr>
                         </tbody>
                     </table>

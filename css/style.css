@@ -182,7 +182,7 @@ header .navbar , .choose-us h4, .comment {
     border: 3px solid #b16f53;
 }
 
-.btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th, .suggestions button {
+.btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th, .suggestions button, .toast-container .toast {
 background-color: #b16f53!important;
 color: #ffffff!important;
 }
@@ -353,10 +353,20 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     color: #844429;
 }
 
-.removeBookmark {
-    display: none;
+.cartItems .removeItem {
+    background-color: inherit;  
+    padding: 0;
+    border: none;
+    width: 20px;
 }
 
+.toast-container {
+
+}
+
+.removeBookmark, .cartNone {
+    display: none;
+}
 
 @media only screen and (max-width: 1570px) {
     .checkoutCards {
