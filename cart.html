@@ -107,10 +107,10 @@
                         <div class="col-sm-6 col-12 pt-2">
                             <label for="ld" class="form-label">Kártyatípus</label>
                             <div class="w-75 d-flex checkoutCards justify-content-between flex-wrap">
-                                <div><img src="img/card1.png" alt="American Express Card" title="American Express"></div>
-                                <div><img src="img/card2.png" alt="VISA Card" title="VISA"></div>
-                                <div><img src="img/card3.png" alt="Mastercard Card" title="Mastercard"></div>
-                                <div><img src="img/card4.png" alt="Discover Card" title="Discover"></div>
+                                <div class="cardSelected card-1" onclick="chooseCard(1)"><img src="img/card1.png" alt="American Express Card" title="American Express"></div>
+                                <div class="card-2" onclick="chooseCard(2)"><img src="img/card2.png" alt="VISA Card" title="VISA"></div>
+                                <div class="card-3" onclick="chooseCard(3)"><img src="img/card3.png" alt="Mastercard Card" title="Mastercard"></div>
+                                <div class="card-4" onclick="chooseCard(4)"><img src="img/card4.png" alt="Discover Card" title="Discover"></div>
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
@@ -137,7 +137,7 @@
                             <label for="ld" class="form-label">Telefonszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-telephone"></i></span>
-                                <input type="tel" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <input type="tel" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" placeholder="12-345-678" required>
                                 <div class="invalid-feedback">
                                     Kérem, írja be a telefonszámát.
                                 </div>
@@ -147,7 +147,7 @@
                             <label for="ld" class="form-label">Kártyaszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-123"></i></span>
-                                <input type="number" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1234-1234-1234-1234" required>
                                 <div class="invalid-feedback">
                                     Kérem, írja be kártyaszámát.
                                 </div>
@@ -164,12 +164,12 @@
                             </div>
                         </div>
                         <div class="col-sm-6 col-12">
-                            <label for="ld" class="form-label">Kártya hónap</label>
+                            <label for="ld" class="form-label">Lejáratási dátum</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-calendar-month"></i></span>
                                 <input type="month" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Kérem, adja meg a kártyán szereplő hónapot.
+                                    Kérem, adja meg a kártya lejáratási dátumát.
                                 </div>
                             </div>
                         </div>
@@ -180,17 +180,17 @@
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Irányitószám</label>
-                            <input type="number" class="form-control" id="varos" required>
+                            <input type="text" class="form-control" id="varos" pattern="[1-9]{1}[0-9]{3}" required>
                             <div class="invalid-feedback">Kérem, adja meg az irányitószámát.</div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Kártya nap</label>
-                            <input type="number" class="form-control" id="varos" required>
+                            <input type="number" class="form-control" id="varos" min="1" max="31" required>
                             <div class="invalid-feedback">Kérem, adja meg a kártyán szereplő napot.</div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">CVV</label>
-                            <input type="number" class="form-control" id="varos" required>
+                            <input type="text" class="form-control" id="varos" pattern="[1-9]{1}[0-9]{2}" required>
                             <div class="invalid-feedback">Kérem, adja meg a kártyán szereplő CVV-t..</div>
                         </div>
                         <div class="form-check col-md-9 col-12 pt-2 ps-5">
@@ -198,7 +198,7 @@
                                 <label class="form-check-label" for="flexCheckDefault">Mentse el a fizetési adataimat</label>
                         </div>
                         <div class="col-12 d-flex justify-content-center mt-2">
-                            <button class="btn btn-dark ms-2 px-4"><h4 class="m-0">Következő</h4></button>
+                            <button class="btn btn-dark ms-2 px-4" onclick="submitPurchase()"><h4 class="m-0">Következő</h4></button>
                         </div>
                     </form>
                 </div>
@@ -239,6 +239,10 @@
                     </table>
                 </div>
             </aside>
+        </div>
+        <div class="confirmedPurchase text-center px-2 pt-3">
+            <img src="img/INDEXLOGO.png" alt="LOGO" width="150px">
+            <h2>A vásárlás sikeres volt!</h2>
         </div>
     </main>
 
@@ -334,6 +338,12 @@
         <div id="removeCartToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-body d-flex">
                 <p class="m-0">A könyv sikeresen kilett törölve a kosárból.</p>
+                <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+        <div id="checkoutFail" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body d-flex">
+                <p class="m-0">A vásárlás sikertelen volt, hiszen üres a kosara.</p>
                 <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
         </div>

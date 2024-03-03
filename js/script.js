@@ -176,6 +176,12 @@ function addBookmark() {
 // localStorage.setItem("HANGOSKONYV_CART", "");
 
 // Bootstrap validáció
+var forms = document.querySelectorAll(".checkout-info");
+function handleForm(event) { event.preventDefault(); } 
+for (i = 0; i < forms.length; i++) {
+  forms[i].addEventListener('submit', handleForm);
+}
+
 (() => {
   'use strict'
 
@@ -186,6 +192,8 @@ function addBookmark() {
       if (!form.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
+      } else {
+          // alert("Minden OK")
       }
 
       form.classList.add('was-validated')
@@ -314,3 +322,28 @@ function TodayDate() {
 
     return year + '/' + month + '/' + day;
 }
+
+function chooseCard(i) {
+    document.querySelector(".cardSelected").classList.remove("cardSelected")
+    document.querySelector(".card-"+i).classList.add("cardSelected")
+}
+
+function submitPurchase() {
+    var inputs = document.querySelectorAll(".checkout-info input");
+    var i = 0;
+    while (i < inputs.length && inputs[i].validity.valid == true) {
+      i++;
+    }
+    if (i == inputs.length) {
+      var cart = localStorage.getItem("HANGOSKONYV_CART");
+      if (cart != "[]") {
+        document.querySelector(".confirmedPurchase").style.display = "block"
+        localStorage.setItem("HANGOSKONYV_CART", []);
+        updatePage();
+      } else {
+        var toastContainer = document.getElementById('checkoutFail');
+        var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
+        toast.show()
+      }
+    }
+  }

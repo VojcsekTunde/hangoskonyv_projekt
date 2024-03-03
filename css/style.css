@@ -179,8 +179,13 @@ header .navbar , .choose-us h4, .comment, #searchResults li a{
 
   }
 
-.suggestions article, .choose-us i::before, .publishers img{
+.suggestions article, .choose-us i::before, .publishers img, .cardSelected {
     border: 3px solid #b16f53;
+}
+
+.cardSelected {
+    border-radius: 5px;
+    background-color: #b16f53;
 }
 
 .btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th, .suggestions button, .toast-container .toast {
@@ -371,6 +376,10 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
 
 
 .removeBookmark, .cartNone {
+    display: none;
+}
+
+.confirmedPurchase {
     display: none;
 }
 
