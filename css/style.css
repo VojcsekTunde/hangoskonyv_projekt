@@ -359,9 +359,6 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     width: 20px;
 }
 
-.toast-container {
-
-}
 
 .removeBookmark, .cartNone {
     display: none;
