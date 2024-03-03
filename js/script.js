@@ -243,28 +243,39 @@ function addComment() {
         const articleElement = document.createElement('article');
         articleElement.classList.add('row', 'mb-3');
 
-        //képek
+        // Képek
         const imageColumn = document.createElement('div');
-        imageColumn.classList.add('col-md-2', 'col-sm-4', 'col-12', 'p-2', 'img-holder', 'me-auto', 'my-auto');
-        
-        const imageElement = document.createElement('img');
+        const textColumn = document.createElement('div');
+
+        // Kép oszlop formázása
+        imageColumn.classList.add('col-md-2', 'col-sm-4', 'col-12', 'p-2', 'img-holder');
         const selectedProfile = document.querySelector('.carousel-item.active img');
-        imageElement.src = selectedProfile.src; 
+        const imageElement = document.createElement('img');
+        imageElement.src = selectedProfile.src;
+
+        // Szöveg oszlop formázása
+        textColumn.classList.add('col-md-10', 'col-sm-8', 'col-12', 'd-flex', 'flex-column');
+
+        const paragraphElement = document.createElement('p');
+        paragraphElement.textContent = `" ${commentText} "`;
+
+        const h4Element = document.createElement('h4');
+        h4Element.classList.add('mt-auto');
+        h4Element.innerHTML = `<strong>${name}</strong> ${TodayDate()}`; // dátum beállítása
+
+        // Számjegyek
+        if (commentContainer.children.length % 2 != 0) {
+            imageColumn.classList.add('ms-auto', 'order-2');
+            textColumn.classList.add('order-1');
+        } else {
+            imageColumn.classList.add('me-auto');
+            h4Element.classList.add('text-end');
+        }
 
         imageColumn.appendChild(imageElement);
         articleElement.appendChild(imageColumn);
 
-        // A második oszlop a szöveges tartalmat tartalmazza
-        const textColumn = document.createElement('div');
-        textColumn.classList.add('col-md-10', 'col-sm-8', 'col-12', 'd-flex', 'flex-column');
-
-        const paragraphElement = document.createElement('p');
-        paragraphElement.textContent = `"${commentText}"`;
-
-        const h4Element = document.createElement('h4');
-        h4Element.classList.add('text-end', 'mt-auto');
-        h4Element.innerHTML = `<strong>${name}</strong> ${TodayDate()}`; // dátum beállítása
-
+        // Szöveg és dátum hozzáadása
         textColumn.appendChild(paragraphElement);
         textColumn.appendChild(h4Element);
         articleElement.appendChild(textColumn);
@@ -293,4 +304,5 @@ function TodayDate() {
     } if (day < 10) {
         day = '0' + day;}
 
-    return year + '/' + month + '/' + day;}
+    return year + '/' + month + '/' + day;
+}
