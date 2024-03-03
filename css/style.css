@@ -188,6 +188,11 @@ background-color: #b16f53!important;
 color: #ffffff!important;
 }
 
+.toast-container .toast a {
+    color: #ffffff!important;
+    font-weight: 700;
+}
+
 .suggestions button {
     border: none !important
 }

@@ -117,6 +117,10 @@ function addToCart() {
     };
 
     addCart(book);
+
+    var toastContainer = document.getElementById('addCartToast');
+    var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
+    toast.show();
 }
 
 function removeFromCart(i) {
@@ -128,6 +132,10 @@ function removeFromCart(i) {
     item.remove()
 
     updatePage();
+
+    var toastContainer = document.getElementById('removeCartToast');
+    var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
+    toast.show();
 }
 
 function changeQuantity(i, num) {
@@ -150,14 +158,14 @@ function addBookmark() {
         document.querySelector(".addBookmark").style.display = "none";
         document.querySelector(".removeBookmark").style.display = "block";
         var toastContainer = document.getElementById('bookmarkToast');
-        document.querySelector("#bookmarkToast p").innerHTML = "A hangoskönyvet beraktuk a könyvjelzők közt."
+        document.querySelector("#bookmarkToast p").innerHTML = 'A hangoskönyvet beraktuk a <a data-bs-toggle="offcanvas" href="#bookmarks" role="button" aria-controls="bookmarks">könyvjelzők</a> közt.'
         var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
         toast.show();
     } else {
         document.querySelector(".addBookmark").style.display = "block";
         document.querySelector(".removeBookmark").style.display = "none";
         var toastContainer = document.getElementById('bookmarkToast');
-        document.querySelector("#bookmarkToast p").innerHTML = "A hangoskönyvet kivettük a könyvjelzők közt."
+        document.querySelector("#bookmarkToast p").innerHTML = 'A hangoskönyvet kivettük a <a data-bs-toggle="offcanvas" href="#bookmarks" role="button" aria-controls="bookmarks">könyvjelzőkből</a>.'
         var toast = bootstrap.Toast.getOrCreateInstance(toastContainer);
         toast.show();
     }
