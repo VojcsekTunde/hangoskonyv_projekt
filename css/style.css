@@ -23,6 +23,20 @@ body{
     border-color: #ebddcf;
 }
 
+.cartItems tbody tr, .cartItems tbody td {
+    vertical-align: middle;
+}
+
+.cartItems button {
+    border-color: #91553c;
+    width: 40px;
+    --bs-btn-hover-border-color: #91553c !important;
+}
+
+.cartItems button:hover {
+    background-color: #ebddcf;
+}
+
 a.nav-link, .nav-icons a, body,.btn-light, .addToCart, .cartItems td, .cartItems th,.Top-Audio td,.Top-Audio th,#searchResults li a,#mobileSearchResults li a{
     color:  #91553c !important;
 }

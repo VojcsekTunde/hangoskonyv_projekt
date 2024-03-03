@@ -10,6 +10,26 @@ function setStorage(name, value) {
 }
 */
 
+function addCart(book) {
+    if (hasStorageSupport()) {
+        var cart = localStorage.getItem("HANGOSKONYV_CART");
+        cart = cart ? JSON.parse(cart) : [];
+        var changed = false
+        for (i in cart) {
+            if (cart[i].name == book.name) {
+                cart[i].quantity++;
+                changed = true;
+            }
+        }
+        if (!changed) {
+            cart.push(book);
+        }
+
+        console.log(cart);
+        localStorage.setItem("HANGOSKONYV_CART", JSON.stringify(cart));
+    }
+}
+
 function setBookmark(bookmark) {
     if (hasStorageSupport()) {
         var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
@@ -24,15 +44,10 @@ function setBookmark(bookmark) {
         if (!removed) {
             bookmarks.push(bookmark);
         }
-        console.log(bookmarks)
         localStorage.setItem("HANGOSKONYV_BOOKMARKS", JSON.stringify(bookmarks));
 
         return removed
     }
-}
-
-function addToCart() {
-    alert("Add To Cart");
 }
 
 // Load storage
@@ -40,7 +55,6 @@ function updatePage() {
     if (hasStorageSupport()) {
         var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
         bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
-        console.log(bookmarks)
     
         var bookmarkContainer = document.querySelector(".bookmarkContainer")
         bookmarkContainer.innerHTML = ""
@@ -52,9 +66,32 @@ function updatePage() {
     
             bookmarkContainer.innerHTML += '<a href="'+bookmarks[i].source+'"><article class="row">    <div class="col-4"><img class="w-100" src="'+bookmarks[i].img+'" alt=""></div>    <div class="col-8 mb-auto mt-2">        <p>'+bookmarks[i].name+'</p>    </div></article></a>'
         }
+
+        var cart = localStorage.getItem("HANGOSKONYV_CART");
+        cart = cart ? JSON.parse(cart) : [];
+
+        var cartItems = document.querySelector(".cartItems tbody")
+        if (cartItems) {
+            for (i in cart) {
+                var book = cart[i];
+                console.log(book)
+                cartItems.innerHTML += '<tr><th scope="row">'+(Number(i)+1)+'</th><td><img src="'+book.img+'" width="100" alt="'+book.name+'" title="'+book.name+'">'+book.name+'</td><td><div class="d-flex">    <button type="button" class="btn">+</button>    <span class="itemQuantity my-auto px-2">'+book.quantity+'</span>    <button type="button" class="btn">-</button></div></td><td><span id="itemPrice">'+(book.price * book.quantity)+'</span> Ft</td></tr>';
+            }
+        }
     }
 }
 updatePage()
+
+function addToCart() {
+    var book = {
+        name: document.querySelector("#bookName").innerHTML,
+        img: document.querySelector("#bookImg").src,
+        price: Number(document.querySelector("#bookPrice").innerHTML),
+        quantity: 1
+    };
+
+    addCart(book);
+}
 
 function addBookmark() {
     var bookmark = {
@@ -75,6 +112,7 @@ function addBookmark() {
 }
 
 // localStorage.setItem("HANGOSKONYV_BOOKMARKS", "");
+// localStorage.setItem("HANGOSKONYV_CART", "");
 
 // Bootstrap validáció
 (() => {
