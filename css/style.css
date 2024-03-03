@@ -45,25 +45,20 @@ header, .choose-us h4{
     margin: 0px 50px;
 }
 
-header .navbar , .choose-us h4, .comment {
+header .navbar , .choose-us h4, .comment, #searchResults li a{
     border-bottom: 1px solid #a57a568f;
 }
-#mobileSearchResults{
-    list-style-type: none;
-    padding: 0;
-     margin: 0;
-     position: absolute;
-}
+
 
 #searchResults{
     list-style-type: none;
-    padding: 0;
      margin: 0;
-     position:absolute;
-    width: 22%;
+     padding: 0;
+     position: absolute;
+     background-color: #ffffff;
     }
 
-#searchResults li a, #mobileSearchResults li a {
+#searchResults li a {
     padding: 10px;
     display: block;
   }
@@ -83,22 +78,22 @@ header .navbar , .choose-us h4, .comment {
     letter-spacing: 1px;
 }
 
-.nav-link, .index-ad,.quote p, .Top-Audio td,.Top-Audio th{
+.nav-link, .index-ad,.quote p, .Top-Audio td,.Top-Audio th,#searchResults li a{
     font-size: 20px;
 }
 
-.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote,footer .navbar-brand,.mobileSearch i{
+.nav-icons,.categories-card p, .index-ad i, button .btn-light,.quote,footer .navbar-brand{
    font-size: 22px;
 }
 
 .nav-item,.index-ad button{
-    padding: 0px 25px;
+    padding: 0px 20px;
 }
 
 .categories h3{
     margin: 50px;
 }
-.navbar-toggler,.addToCart,#searchResults li a,#mobileSearchResults li a {
+.navbar-toggler,.addToCart{
     background-color: #fff;}
 
 .addToCart {
@@ -199,7 +194,7 @@ color: #ffffff!important;
     border: none !important
 }
 
-  .form-control, .card, .navbar-toggler,#searchResults li a,#mobileSearchResults li a{
+  .form-control, .card, .navbar-toggler{
     border: 1px solid #aa634485;
     
   }
@@ -345,6 +340,9 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     height: 100%;
   
 }
+.collapse.show{
+    padding: 0px;
+}
 
 .audiobook button {
     background-color: inherit;
@@ -409,8 +407,5 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     .shelf img{
        display: none !important;
 
-    }
-    .logo, .MainSearch,.MainSearchIcon{
-        display: none;
     }
 }
