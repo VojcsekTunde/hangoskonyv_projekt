@@ -293,7 +293,7 @@ footer iframe {
     background-position: center center;
 }
 
-form button, span.carousel-control-prev-icon, span.carousel-control-next-icon {
+form button, span.carousel-control-prev-icon, span.carousel-control-next-icon,.carousel-indicators button {
     background-color:#91553c !important;
     border: #91553c !important;
 }
