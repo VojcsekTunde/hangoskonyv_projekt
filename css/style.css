@@ -64,6 +64,11 @@ header .navbar , .choose-us h4, .comment, #searchResults li a{
     display: block;
   }
 
+  .form-control {
+    box-shadow: none !important;
+
+}
+
 .publisher-imgs div {
     border-left: 1px solid #a57a568f;
     padding: 0 55px;
@@ -196,7 +201,7 @@ color: #ffffff!important;
 }
 
   .form-control, .card, .navbar-toggler{
-    border: 1px solid #aa634485;
+    border: 1px solid #aa634485!important;
     
   }
   .card{
@@ -388,6 +393,16 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     }
 }
 
+@media only screen and (max-width: 990px) {
+    .input-group{
+        padding: 20px 0px;
+    }
+    .nav-icons{
+        padding-bottom: 20px;
+        font-size: 24px;
+    }
+}
+
 @media only screen and (max-width: 576px) {
     .container.smallcont {
         width: 100%;
@@ -413,7 +428,9 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
         width: 50%;
     }
     .shelf img{
-       display: none !important;
+       display: none !important; }
 
+    .navbar-collapse .logo{
+        display: none;
     }
 }
