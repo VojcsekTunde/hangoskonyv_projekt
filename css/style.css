@@ -304,7 +304,7 @@ form button, span.carousel-control-prev-icon, span.carousel-control-next-icon,.c
 }
 
 .carousel-item img{
-    height: 500px;
+    height: 700px;
     width: 100%;
     object-fit: cover;
     object-position: center;
@@ -391,6 +391,9 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     .categories img{
         width: 70%;
     }
+    .carousel-item img{
+        height: 500px;
+    }
 }
 
 @media only screen and (max-width: 990px) {
@@ -401,6 +404,7 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
         padding-bottom: 20px;
         font-size: 24px;
     }
+   
 }
 
 @media only screen and (max-width: 576px) {
@@ -427,10 +431,15 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
     .categories img{
         width: 50%;
     }
-    .shelf img{
+    .shelf-row{
        display: none !important; }
 
     .navbar-collapse .logo{
         display: none;
+    } 
+    
+    .carousel-item img{
+        height: 400px;
     }
+
 }
