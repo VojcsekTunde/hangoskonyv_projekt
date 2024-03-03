@@ -336,7 +336,7 @@ function submitPurchase() {
     }
     if (i == inputs.length) {
       var cart = localStorage.getItem("HANGOSKONYV_CART");
-      if (cart != "[]") {
+      if (cart != "[]" && cart != "" && cart) {
         document.querySelector(".confirmedPurchase").style.display = "block"
         localStorage.setItem("HANGOSKONYV_CART", []);
         updatePage();
