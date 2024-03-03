@@ -175,4 +175,140 @@ function kisBetus() {
     }
 }
 searchInput.addEventListener('input', kisBetus);
+function hasStorageSupport() {
+    return typeof(Storage) !== "undefined";
+}
 
+/*
+function setStorage(name, value) {
+    if (hasStorageSupport()) {
+
+    }
+}
+*/
+
+function setBookmark(bookmark) {
+    if (hasStorageSupport()) {
+        var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
+        bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
+        var removed = false
+        for (i in bookmarks) {
+            if (bookmarks[i].name == bookmark.name) {
+                bookmarks.splice(i, 1);
+                removed = true
+            }
+        }
+        if (!removed) {
+            bookmarks.push(bookmark);
+        }
+        console.log(bookmarks)
+        localStorage.setItem("HANGOSKONYV_BOOKMARKS", JSON.stringify(bookmarks));
+
+        return removed
+    }
+}
+
+function addToCart() {
+    alert("Add To Cart");
+}
+
+function addBookmark() {
+    var bookmark = {
+        name: document.querySelector("#audiobookName").innerHTML,
+        img: document.querySelector("#audiobookImg").src,
+        source: window.location.href
+    };
+
+    var removed = setBookmark(bookmark)
+    if (!removed) {
+        document.querySelector(".addBookmark").style.display = "none";
+        document.querySelector(".removeBookmark").style.display = "block";
+    } else {
+        document.querySelector(".addBookmark").style.display = "block";
+        document.querySelector(".removeBookmark").style.display = "none";
+    }
+}
+
+// localStorage.setItem("HANGOSKONYV_BOOKMARKS", "");
+// Load storage
+if (hasStorageSupport()) {
+    var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
+    bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
+    console.log(bookmarks)
+
+    var bookmarkContainer = document.querySelector(".bookmarkContainer")
+    for (i in bookmarks) {
+        if (document.querySelector("#audiobookName").innerHTML == bookmarks[i].name) {
+            document.querySelector(".addBookmark").style.display = "none";
+            document.querySelector(".removeBookmark").style.display = "block";
+        }
+
+        bookmarkContainer.innerHTML += '<a href="'+bookmarks[i].source+'"><article class="row">    <div class="col-4"><img class="w-100" src="'+bookmarks[i].img+'" alt=""></div>    <div class="col-8 my-auto">        <p>'+bookmarks[i].name+'</p>    </div></article></a>'
+    }
+}
+
+ // KOMMENTELÉS
+function addComment() {
+    const nameInput = document.getElementById('name');
+    const commentInput = document.getElementById('comment');
+
+    const name = nameInput.value;
+    const commentText = commentInput.value;
+
+    // Ellenőrizzük, hogy mindhárom mező kitöltött-e
+    if (name && commentText) {
+        const commentContainer = document.getElementById('commentsContainer');
+        const articleElement = document.createElement('article');
+        articleElement.classList.add('row', 'mb-3');
+
+        //képek
+        const imageColumn = document.createElement('div');
+        imageColumn.classList.add('col-md-2', 'col-sm-4', 'col-12', 'p-2', 'img-holder', 'me-auto', 'my-auto');
+        
+        const imageElement = document.createElement('img');
+        const selectedProfile = document.querySelector('.carousel-item.active img');
+        imageElement.src = selectedProfile.src; 
+
+        imageColumn.appendChild(imageElement);
+        articleElement.appendChild(imageColumn);
+
+        // A második oszlop a szöveges tartalmat tartalmazza
+        const textColumn = document.createElement('div');
+        textColumn.classList.add('col-md-10', 'col-sm-8', 'col-12', 'd-flex', 'flex-column');
+
+        const paragraphElement = document.createElement('p');
+        paragraphElement.textContent = `"${commentText}"`;
+
+        const h4Element = document.createElement('h4');
+        h4Element.classList.add('text-end', 'mt-auto');
+        h4Element.innerHTML = `<strong>${name}</strong> ${TodayDate()}`; // dátum beállítása
+
+        textColumn.appendChild(paragraphElement);
+        textColumn.appendChild(h4Element);
+        articleElement.appendChild(textColumn);
+
+        // Komment elem hozzáadása a konténerhez
+        commentContainer.appendChild(articleElement);
+
+        // Űrlap mezők ürítése
+        nameInput.value = '';
+        commentInput.value = '';
+    } else {
+        alert('Kérjük, töltse ki az összes mezőt!');
+    }
+    event.preventDefault();
+}
+
+function TodayDate() {
+    const date = new Date();
+    const year = date.getFullYear();
+    let month = date.getMonth() + 1;
+    let day = date.getDate();
+
+    // Számjegyek
+    if (month < 10) {
+        month = '0' + month;
+    } if (day < 10) {
+        day = '0' + day;}
+
+    return year + '/' + month + '/' + day;}
