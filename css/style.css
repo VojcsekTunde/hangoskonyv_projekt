@@ -180,7 +180,7 @@ header .navbar , .choose-us h4, .comment, #searchResults li a{
   }
 
 .suggestions article, .choose-us i::before, .publishers img, .cardSelected {
-    border: 3px solid #b16f53;
+    border: 3px solid #b16f53 !important;
 }
 
 .cardSelected {
@@ -191,6 +191,10 @@ header .navbar , .choose-us h4, .comment, #searchResults li a{
 .btn.more, .input-group-text,.quote, .book, .cartList, .cartList td, .cartList th, .suggestions button, .toast-container .toast {
 background-color: #b16f53!important;
 color: #ffffff!important;
+}
+
+.toast-container #checkoutFail {
+    background-color: #dc3545 !important
 }
 
 .toast-container .toast a {
@@ -265,8 +269,12 @@ footer {
     font-size: 20px;
 }
 
-.cards img:hover {
+.cards img:hover, .checkoutCards div:hover {
     filter: drop-shadow(0 0 10px rgba(165, 122, 86, 0.25));
+}
+
+.addBookmark:hover, .removeBookmark:hover, .addToCart:hover {
+    filter: drop-shadow(0 0 10px rgba(5, 5, 5, 0.25));
 }
 
 footer a {
@@ -375,13 +383,22 @@ a, .nav-link, #searchResults li a,#mobileSearchResults li a{
 }
 
 
-.removeBookmark, .cartNone {
+.removeBookmark, .cartNone, .confirmedPurchase, .couponActivate, .couponRow {
     display: none;
 }
 
-.confirmedPurchase {
-    display: none;
+.couponActivate {
+    color: #33b87a;
 }
+
+.position-relative span {
+    display: none;
+    font-size: 12px;
+    top: 85%;
+    left: 85%;
+    background-color: #b16f53;
+}
+
 
 @media only screen and (max-width: 1570px) {
     .checkoutCards {

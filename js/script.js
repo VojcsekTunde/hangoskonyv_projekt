@@ -2,14 +2,6 @@ function hasStorageSupport() {
     return typeof(Storage) !== "undefined";
 }
 
-/*
-function setStorage(name, value) {
-    if (hasStorageSupport()) {
-
-    }
-}
-*/
-
 function addCart(book) {
     if (hasStorageSupport()) {
         var cart = localStorage.getItem("HANGOSKONYV_CART");
@@ -67,6 +59,13 @@ function setBookmark(bookmark) {
 }
 
 // Load storage
+
+var coupons = {
+    Kupon: 0.8,
+    NagyKupon: 0.5
+}
+var activeCoupon = null
+
 function updatePage() {
     if (hasStorageSupport()) {
         var bookmarks = localStorage.getItem("HANGOSKONYV_BOOKMARKS");
@@ -101,9 +100,20 @@ function updatePage() {
                 document.querySelector(".cartItems").style.display = "none";
                 document.querySelector(".cartNone").style.display = "block";
             }
-            document.querySelector(".cartList #totalPrice").innerHTML = total
-            document.querySelector(".cartList #finalPrice").innerHTML = total+300
+            document.querySelector(".cartList #totalPrice").innerHTML = total+300
+            document.querySelector(".cartList #finalPrice").innerHTML = Math.round((total+300) * (activeCoupon ? coupons[activeCoupon] : 1))
         }
+
+        var badge = document.querySelector("#cartBadge")
+        if (badge) {
+            if (cart.length > 0) {
+                badge.style.display = "inline-block"
+                badge.innerHTML = cart.length
+            } else {
+                document.querySelector("#cartBadge").style.display = "none"
+            }
+        }
+
     }
 }
 updatePage()
@@ -181,6 +191,10 @@ function handleForm(event) { event.preventDefault(); }
 for (i = 0; i < forms.length; i++) {
   forms[i].addEventListener('submit', handleForm);
 }
+var forms = document.querySelectorAll(".cartFinal form");
+for (i = 0; i < forms.length; i++) {
+    forms[i].addEventListener('submit', handleForm);
+  }
 
 (() => {
   'use strict'
@@ -329,6 +343,13 @@ function chooseCard(i) {
 }
 
 function submitPurchase() {
+    /*
+    var inputss = document.querySelectorAll(".checkout-info .col-sm-6 input, .checkout-info .col-sm-3 input")
+    for (i in inputss) {
+        console.log(inputss[i].value)    
+    }
+    */
+
     var inputs = document.querySelectorAll(".checkout-info input");
     var i = 0;
     while (i < inputs.length && inputs[i].validity.valid == true) {
@@ -338,6 +359,7 @@ function submitPurchase() {
       var cart = localStorage.getItem("HANGOSKONYV_CART");
       if (cart != "[]" && cart != "" && cart) {
         document.querySelector(".confirmedPurchase").style.display = "block"
+        document.querySelector(".container-fluid.row.m-0.pt-4").remove()
         localStorage.setItem("HANGOSKONYV_CART", []);
         updatePage();
       } else {
@@ -347,3 +369,19 @@ function submitPurchase() {
       }
     }
   }
+
+function coupon() {
+    var input = document.querySelector(".cartFinal input")
+    if (input.validity.valid == true) {
+        if (coupons[input.value]) {
+            document.querySelector(".cartFinal form").remove()
+            document.querySelector(".couponActivate").style.display = "block"
+            document.querySelector(".couponRow").style.display = "table-row"
+            document.querySelector("#coupon").innerHTML = (100 - 100*coupons[input.value])
+            activeCoupon = input.value
+            updatePage();
+        } else {
+            document.querySelector(".cartFinal .invalid-feedback").style.display = "block"
+        }
+    }
+}
