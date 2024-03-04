@@ -201,6 +201,9 @@ for (i = 0; i < forms.length; i++) {
   })
 })()
 
+/* audiobookImg, audiobookName, audiobookParagraph ,audiobookMP3, bookName, bookPrice, bookImg, 
+ ezeknek az értéke változik az aloldalakon*/
+
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 const mobileSearchInput = document.getElementById('mobileSearchInput');
@@ -209,14 +212,14 @@ const mobileSearchResults = document.getElementById('mobileSearchResults');
 const sections = [
     { id: 'Fantasy-1', title: 'Fantasy-1 cím', page: 'audiobook1.html' },
     { id: 'Fantasy-2', title: 'Fantasy-2 cím', page: 'audiobook1.html' },
-    { id: 'Gyerek-1', title: 'Gyerek-1 cím', page: 'audiobook1.html' },
-    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'audiobook1.html' },
-    { id: 'Ifjúsági-1', title: 'Ifjúsági-1 cím', page: 'audiobook1.html' },
-    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'audiobook1.html' },
-    { id: 'Szépirodalmi-1', title: 'Szépirodalmi-1 cím', page: 'audiobook1.html' },
-    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'audiobook2.html'},
-    { id: 'Ismeretterjesztő-1', title: 'Ismeretterjesztő-1 cím', page: 'audiobook1.html'},
-    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'audiobook1.html'}];
+    { id: 'Gyerek-1', title: 'Gyerek-1 cím', page: 'child1.html' },
+    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'child1.html' },
+    { id: 'Ifjúsági-1', title: 'Ifjúsági-1 cím', page: 'teen1.html' },
+    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'teen1.html' },
+    { id: 'Szépirodalmi-1', title: 'Szépirodalmi-1 cím', page: 'lit1.html'},
+    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'lit1.html'},
+    { id: 'Ismeretterjesztő-1', title: 'Ismeretterjesztő-1 cím', page: 'sience1.html'},
+    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'sience1.html'}];
 
 
 function kisBetus() {
@@ -243,6 +246,7 @@ function kisBetus() {
         }
     }
 }
+
 searchInput.addEventListener('input', kisBetus);
 
 // KOMMENTELÉS
