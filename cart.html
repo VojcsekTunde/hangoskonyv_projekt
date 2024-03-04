@@ -98,7 +98,7 @@
                             <label for="ld" class="form-label">Teljes név</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-circle"></i></span>
-                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required  onkeydown = "return /[a-zA-Z]/i.test(event.key)" >
                                 <div class="invalid-feedback">
                                     Kérem, írja be a teljes nevét.
                                 </div>
@@ -127,7 +127,7 @@
                             <label for="ld" class="form-label">Kártyanév</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-person-vcard"></i></span>
-                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required  onkeydown = "return /[a-zA-Z]/i.test(event.key)" >
                                 <div class="invalid-feedback">
                                     Kérem, írja be a kártyanevét.
                                 </div>
@@ -137,7 +137,7 @@
                             <label for="ld" class="form-label">Telefonszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-telephone"></i></span>
-                                <input type="tel" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" placeholder="12-345-678" required>
+                                <input type="tel" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" maxlength="11" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" placeholder="12-345-678" required onkeypress="return isNumber(event)">
                                 <div class="invalid-feedback">
                                     Kérem, írja be a telefonszámát.
                                 </div>
@@ -147,7 +147,7 @@
                             <label for="ld" class="form-label">Kártyaszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-123"></i></span>
-                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1234-1234-1234-1234" required>
+                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1234-1234-1234-1234" required  onkeypress="return isNumber(event)">
                                 <div class="invalid-feedback">
                                     Kérem, írja be kártyaszámát.
                                 </div>
@@ -175,22 +175,22 @@
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Település</label>
-                            <input type="text" class="form-control" id="varos" required>
+                            <input type="text" class="form-control" id="varos" required  onkeydown = "return /[a-zA-Z]/i.test(event.key)" >
                             <div class="invalid-feedback">Kérem, adja meg a települését.</div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Irányitószám</label>
-                            <input type="text" class="form-control" id="varos" pattern="[1-9]{1}[0-9]{3}" required>
+                            <input type="text" class="form-control" id="varos" maxlength="4" pattern="[1-9]{1}[0-9]{3}" required  onkeypress="return isNumber(event)">
                             <div class="invalid-feedback">Kérem, adja meg az irányitószámát.</div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Kártya nap</label>
-                            <input type="number" class="form-control" id="varos" min="1" max="31" required>
+                            <input type="number" class="form-control" id="varos" maxlength="2" min="1" max="31" required onkeypress="return isNumber(event)">
                             <div class="invalid-feedback">Kérem, adja meg a kártyán szereplő napot.</div>
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">CVV</label>
-                            <input type="text" class="form-control" id="varos" pattern="[1-9]{1}[0-9]{2}" required>
+                            <input type="text" class="form-control" id="varos" maxlength="3" pattern="[1-9]{1}[0-9]{2}" required  onkeypress="return isNumber(event)">
                             <div class="invalid-feedback">Kérem, adja meg a kártyán szereplő CVV-t..</div>
                         </div>
                         <div class="form-check col-md-9 col-12 pt-2 ps-5">

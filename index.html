@@ -122,11 +122,12 @@
                         <p class="my-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio sunt est
                             laudantium sapiente recusandae eius veniam cum. <br>Possimus iste, ipsam
                             molestias voluptate eum mollitia delectus beatae voluptas?</p>
-
-                        <div class="btn-group my-2" role="group" aria-label="Basic example">
-                            <button type="button" class="btn btn-light">Részletek</button>
-                            <button type="button" class="btn more"> <i class="bi bi-arrow-right-circle"></i></button>
+                                    
+                        <a href="lit1.html"> <div class="btn-group my-2" role="group" aria-label="Basic example">
+                           <button type="button" class="btn btn-light">Részletek</button>
+                            <button type="button" class="btn more"> <i class="bi bi-arrow-right-circle" ></i></button>
                         </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -272,7 +273,7 @@
                 </div>
                 <form class="col-lg-9 col-md-8 col-12 ps-sm-5 ps-3 my-auto d-flex flex-column">
                     <div class="form-floating mb-3 ">
-                        <input type="email" class="form-control w-50" id="name" placeholder="">
+                        <input type="text" class="form-control w-50" id="name" placeholder="" onkeydown = "return /[a-zA-Z]/i.test(event.key)" >
                         <label for="name">Név</label>
                     </div>
                     <div class="form-floating">
