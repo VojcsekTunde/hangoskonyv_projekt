@@ -236,7 +236,7 @@ const sections = [
     { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'sience1.html'}];
 
 
-function kisBetusKereses() {
+function searchIn() {
     const searchText = searchInput.value.toLowerCase();
     searchResults.innerHTML = '';
 
@@ -261,7 +261,7 @@ function kisBetusKereses() {
     }
 }
 
-searchInput.addEventListener('input', kisBetusKereses);
+searchInput.addEventListener('input', searchIn);
 
 // KOMMENTELÉS
 function addComment() {
