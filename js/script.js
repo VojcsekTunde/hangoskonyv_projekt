@@ -389,9 +389,20 @@ function coupon() {
         }
     }
 }
+function addDash() {
+    var inputs = document.querySelectorAll(".checkout-info input");
+    for (var i = 0; i < inputs.length; i++) {
+        if (inputs[i].id == "cardNum" && inputs[i].value && (inputs[i].value.length - Math.floor(inputs[i].value.length / 5)) % 4 == 0 && inputs[i].value.length < 19 && inputs[i].value.charAt(inputs[i].value.length-1) != "-") {
+            inputs[i].value += "-";
+        } else if (inputs[i].id == "telNum" && inputs[i].value && (inputs[i].value.length == 2 || inputs[i].value.length == 6)) {
+            inputs[i].value += "-";
+        }
+    }
+}
 function isNumber(event){
 var charCode = (event.which) ? event.which : event.keyCode
 if (charCode > 31 && (charCode < 48 || charCode > 57))
     return false;
+addDash()
 return true;
 }

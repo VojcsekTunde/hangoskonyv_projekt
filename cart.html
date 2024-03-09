@@ -137,7 +137,7 @@
                             <label for="ld" class="form-label">Telefonszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-telephone"></i></span>
-                                <input type="tel" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" maxlength="11" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" placeholder="12-345-678" required onkeypress="return isNumber(event)">
+                                <input type="tel" class="form-control" id="telNum" aria-describedby="inputGroupPrepend" maxlength="10" pattern="[0-9]{2}-[0-9]{3}-[0-9]{3}" placeholder="12-345-678" required onkeypress="return isNumber(event)">
                                 <div class="invalid-feedback">
                                     Kérem, írja be a telefonszámát.
                                 </div>
@@ -147,7 +147,7 @@
                             <label for="ld" class="form-label">Kártyaszám</label>
                             <div class="input-group has-validation">
                                 <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-123"></i></span>
-                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1234-1234-1234-1234" required  onkeypress="return isNumber(event)">
+                                <input type="text" class="form-control" id="cardNum" aria-describedby="inputGroupPrepend" maxlength="19" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}" placeholder="1234-1234-1234-1234" required  onkeypress="return isNumber(event)">
                                 <div class="invalid-feedback">
                                     Kérem, írja be kártyaszámát.
                                 </div>
@@ -185,7 +185,7 @@
                         </div>
                         <div class="col-sm-3 col-6">
                             <label for="varos" class="form-label">Kártya nap</label>
-                            <input type="number" class="form-control" id="varos" maxlength="2" min="1" max="31" required onkeypress="return isNumber(event)">
+                            <input type="number" class="form-control" id="cardDay" maxlength="2" min="1" max="31" required onkeypress="return isNumber(event)" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
                             <div class="invalid-feedback">Kérem, adja meg a kártyán szereplő napot.</div>
                         </div>
                         <div class="col-sm-3 col-6">
