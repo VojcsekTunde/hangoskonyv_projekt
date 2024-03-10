@@ -224,7 +224,7 @@ const mobileSearchInput = document.getElementById('mobileSearchInput');
 const mobileSearchResults = document.getElementById('mobileSearchResults');
 
 const sections = [
-    { id: 'Fantasy-1', title: 'Fantasy-1', page: 'audiobook1.html' },
+    { id: 'Fantasy-1', title: 'A hétfejű sárkány1', page: 'audiobook1.html' },
     { id: 'Fantasy-2', title: 'A hétfejű sárkány', page: 'audiobook2.html' },
     { id: 'Gyerek-1', title: 'A fehér macska és a manók', page: 'child1.html' },
     { id: 'Gyerek-2', title: 'A három kívánság', page: 'child2.html' },
