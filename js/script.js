@@ -224,16 +224,16 @@ const mobileSearchInput = document.getElementById('mobileSearchInput');
 const mobileSearchResults = document.getElementById('mobileSearchResults');
 
 const sections = [
-    { id: 'Fantasy-1', title: 'Fantasy-1 cím', page: 'audiobook1.html' },
-    { id: 'Fantasy-2', title: 'Fantasy-2 cím', page: 'audiobook1.html' },
+    { id: 'Fantasy-1', title: 'Fantasy-1', page: 'audiobook1.html' },
+    { id: 'Fantasy-2', title: 'A hétfejű sárkány', page: 'audiobook2.html' },
     { id: 'Gyerek-1', title: 'A fehér macska és a manók', page: 'child1.html' },
-    { id: 'Gyerek-2', title: 'Gyerek-2 cím', page: 'child1.html' },
+    { id: 'Gyerek-2', title: 'A három kívánság', page: 'child2.html' },
     { id: 'Ifjúsági-1', title: 'Nyár a szigeten 1. rész', page: 'teen1.html' },
-    { id: 'Ifjúsági-2', title: 'Ifjúsági-2 cím', page: 'teen1.html' },
+    { id: 'Ifjúsági-2', title: 'Nyár a szigeten 2. rész', page: 'teen2.html' },
     { id: 'Szépirodalmi-1', title: 'A reményhez', page: 'lit1.html'},
-    { id: 'Szépirodalmi-2', title: 'Szépirodalmi-2 cím', page: 'lit1.html'},
+    { id: 'Szépirodalmi-2', title: 'A föl-földobott kő', page: 'lit2.html'},
     { id: 'Ismeretterjesztő-1', title: 'A tudomány születése', page: 'sience1.html'},
-    { id: 'Ismeretterjesztő-2', title: 'Ismeretterjesztő-2 cím', page: 'sience1.html'}];
+    { id: 'Ismeretterjesztő-2', title: 'A könyvnyomtatás feltalálása', page: 'sience2.html'}];
 
 
 function searchIn() {
